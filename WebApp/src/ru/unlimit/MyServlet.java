@@ -38,8 +38,8 @@ public class MyServlet extends HttpServlet {
 		System.out.println("Имя: " + name);
 		System.out.println("Фамилия: " + surname);
 		//System.out.println("Профессия: " + job);
-		System.out.println("Количество ролей: " + jobs.length);
-		for (String job : jobs) {
+		System.out.println("Количество ролей: " + jobs.length); //Хотим узнать, сколько ролей
+		for (String job : jobs) {           //Перебор по нашему массиву ролей, чтобы вывести на экран
 			System.out.print(job + ", ");
 		}
 		System.out.println("Пол: " + gender);
@@ -54,7 +54,7 @@ public class MyServlet extends HttpServlet {
 		out.println("Имя: " + name + "<br>");
 		out.println("Фамилия: " + surname + "<br>");
 		//out.println("Профессия: " + job + "<br>");
-		out.println("Профессия: " + Arrays.deepToString(jobs) + "<br>");
+		out.println("Профессия: " + Arrays.deepToString(jobs) + "<br>"); //Метод для преобразования массива в строку
 		out.println("Пол: " + gender + "<br>");
 		out.println("Старше 18: " + age18 + "<br>");
 		//out.println("<h3>Hello from MyServlet.GET " + name + " " + surname + "</h3>");
