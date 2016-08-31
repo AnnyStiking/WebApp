@@ -10,7 +10,7 @@ import java.io.PrintWriter;
 import java.util.Arrays;
 
 
-@WebServlet("/MyServlet")
+@WebServlet(urlPatterns = "/MyServlet", loadOnStartup = 2)
 public class MyServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

@@ -18,7 +18,7 @@ public class ParametersServlet extends HttpServlet {
 	@Override
 	public void init() throws ServletException {
 		super.init();
-		System.out.println("Initialization of servlet");
+		System.out.println("Initialization of servlet number 1");
 	}
 
 
