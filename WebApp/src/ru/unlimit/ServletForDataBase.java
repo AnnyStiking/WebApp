@@ -1,7 +1,6 @@
 package ru.unlimit;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -10,18 +9,49 @@ import java.sql.Statement;
 import java.util.List;
 import java.util.Vector;
 
+import javax.naming.InitialContext;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import javax.sql.DataSource;
+
+
+
+
 
 //@WebServlet("/ServletForDataBase")
 public class ServletForDataBase extends HttpServlet {
+	//@Override
+	/*public void init() throws ServletException {
+
+	    try {
+	    	String driverName = "com.mysql.jdbc.Driver";
+		Class.forName(driverName);   //Для загрузки класса по его имени
+		System.out.println("Driver loading success!");
+	    }
+	    catch (ClassNotFoundException e) {
+
+			e.printStackTrace();
+		}*/
+	
+	private final static String driverName = "com.mysql.jdbc.Driver";
+	
+	
+	
+/*	public void auten(HttpServletRequest request, HttpServletResponse response){
+		String name = request.getParameter("name");
+		String password = request.getParameter("password");
+	}*/
+	
+
 	private static final long serialVersionUID = 1L;
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		List<EquipmentsList> results = performTask();
+		
+		List results = performTask(request, response);
 		//request.setAttribute("results", results);
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/ShowEquipments.jsp");
 		request.setAttribute("results", results);
@@ -45,7 +75,7 @@ public class ServletForDataBase extends HttpServlet {
 	}*/
 	
 
-	private List<EquipmentsList> performTask() {
+	private List performTask(HttpServletRequest request, HttpServletResponse response) {
 
 		//HttpServletResponse response = null;
 		//ServletForDataBase response = new ServletForDataBase();
@@ -57,16 +87,27 @@ public class ServletForDataBase extends HttpServlet {
 			//try {//1
 		//		out = response.getWriter();
 					try {//2
-					    String driverName = "com.mysql.jdbc.Driver";
+					    //String driverName = "com.mysql.jdbc.Driver";
 						Class.forName(driverName);   //Для загрузки класса по его имени
 						System.out.println("Driver loading success!");
 						Connection cn = null; 
 							try {//3
 								String url = "jdbc:mysql://localhost:3306/business";
-								String name = "root";
-								String password = "root";
+								//String name = "root";
+								//String password = "root";
+								//auten name1 = new auten();
+								//auten password1 = new auten();
+								String name = request.getParameter("name");
+								String password = request.getParameter("password");
+
+								//HttpSession session = request.getSession();
+								
+
 								//Для создания соединения. Метод getConnection() просматривает список драйверов и, 
 								//если находит подходящий к указанному URL, то создаёт и возвращает соединение.
+								
+								//auten name1 = new auten();
+								//auten password1 = new auten();
 								cn = DriverManager.getConnection(url, name, password);
 							//Statement - объект для передачи запросов
 								Statement st = null;
@@ -86,6 +127,7 @@ public class ServletForDataBase extends HttpServlet {
 													//out.print("<br>Number:-> " + rs.getInt(1) + " Equipment's names" + rs.getString(2));
 													ai.setEquipment_id(rs.getInt(1));
 													ai.setEquipment_name(rs.getString(2));
+													ai.setCharacteristic(rs.getString(3));
 													//ai.setDescription_id(rs.getInt(3));
 													results.add(ai);
 												}
@@ -114,7 +156,7 @@ public class ServletForDataBase extends HttpServlet {
 									System.out.print("Connection не создан");
 							}
 					} catch (ClassNotFoundException e) {//Для 2-го блока try
-						//System.out.print("Ошибка во время загрузки драйвера БД");
+						System.out.print("Ошибка во время загрузки драйвера БД");
 						e.printStackTrace();
 					} 
 			//} 
@@ -136,3 +178,10 @@ public class ServletForDataBase extends HttpServlet {
 	}
 
 }
+
+ /*class auten{
+	HttpServletRequest request=null;
+	String name = request.getParameter("name");
+	String password = request.getParameter("password");
+	
+}*/

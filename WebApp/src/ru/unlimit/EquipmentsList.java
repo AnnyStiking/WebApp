@@ -5,7 +5,14 @@ public class EquipmentsList {
 		private int equipment_id;
 		private String equipment_name;
 		private int description_id;
+		private String characteristic;
 		
+	public String getCharacteristic() {
+			return characteristic;
+		}
+		public void setCharacteristic(String characteristic) {
+			this.characteristic = characteristic;
+		}
 	public int getEquipment_id() {
 			return equipment_id;
 		}
