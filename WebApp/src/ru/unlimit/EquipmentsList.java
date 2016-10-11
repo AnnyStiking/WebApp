@@ -1,43 +1,33 @@
 package ru.unlimit;
 
 public class EquipmentsList {
-
-		private int equipment_id;
-		private String equipment_name;
-		private int description_id;
-		private String characteristic;
-		
-	public String getCharacteristic() {
-			return characteristic;
-		}
-		public void setCharacteristic(String characteristic) {
-			this.characteristic = characteristic;
-		}
-	public int getEquipment_id() {
-			return equipment_id;
-		}
-	public void setEquipment_id(int equipment_id) {
-			this.equipment_id = equipment_id;
-		}
-		
+	private int ID_TYPE;
+	private String ENAME;
+	private String CNAME;
+	private int MEASUREID;
+	public int getID_TYPE() {
+		return ID_TYPE;
+	}
+	public void setID_TYPE(int iD_TYPE) {
+		ID_TYPE = iD_TYPE;
+	}
+	public String getENAME() {
+		return ENAME;
+	}
+	public void setENAME(String eNAME) {
+		ENAME = eNAME;
+	}
+	public String getCNAME() {
+		return CNAME;
+	}
+	public void setCNAME(String cNAME) {
+		CNAME = cNAME;
+	}
+	public int getMEASUREID() {
+		return MEASUREID;
+	}
+	public void setMEASUREID(int mEASUREID) {
+		MEASUREID = mEASUREID;
+	}
 	
-		public String getEquipment_name() {
-			return equipment_name;
-		}
-		public void setEquipment_name(String equipment_name) {
-			this.equipment_name = equipment_name;
-		}
-		
-		
-	public int getDescription_id() {
-			return description_id;
-		}
-	public void setDescription_id(int description_id) {
-			this.description_id = description_id;
-		}
-		
-		
-
-
-
 }

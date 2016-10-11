@@ -4,7 +4,8 @@
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
   </welcome-file-list>
-  <servlet>
+  
+    <servlet>
     <servlet-name>ServletForDataBase</servlet-name>
     <servlet-class>ru.unlimit.ServletForDataBase</servlet-class>
   </servlet>
@@ -13,8 +14,7 @@
     <url-pattern>/ServletForDataBase</url-pattern>
   </servlet-mapping>
   
-  
-    <servlet>
+  <servlet>
     <servlet-name>GetEquipmentsListsServlet</servlet-name>
     <servlet-class>ru.unlimit.GetEquipmentsListsServlet</servlet-class>
   </servlet>

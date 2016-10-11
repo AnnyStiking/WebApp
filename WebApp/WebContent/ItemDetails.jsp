@@ -11,22 +11,9 @@
 <TABLE border="0">
 <TBODY>
 <TR>
-<TD>Item Id:</TD>
-<TD><INPUT type="text" name="id" size="5" value=<%=item.getEquipment_id() %> readonly></TD>
-</TR>
-<TR>
-<TD>Item:</TD>
+<TD>Характеристика:</TD>
 <TD><TEXTAREA rows="1" cols="60" name="short_name" readonly>
-<%=item.getEquipment_name() %></TEXTAREA></TD>
-</TR>
-<TR>
-<TD>Item Description:</TD>
-<TD><TEXTAREA rows="3" cols="40" name="description" readonly>
-<%=item.getCharacteristic() %></TEXTAREA></TD>
-</TR>
-<TR>
-<TD>Minimum Price:</TD>
-<TD><INPUT type="text" name="minPrice" size="20"></TD>
+<%=item.getCNAME() %></TEXTAREA></TD>
 </TR>
 </TBODY>
 </TABLE>

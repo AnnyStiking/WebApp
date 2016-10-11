@@ -8,12 +8,12 @@
 <link rel="stylesheet" href="Theme/Style.css">
 </head>
 <body>
-<h2><b>Equipment's List</b></h2>
+<h2><b>Список оборудования</b></h2>
 <TABLE>
 <THEAD>
 <TR>
-<TH rowspan="2">Equipment's number
-<TH rowspan="2">Title
+<TH rowspan="2">Номер
+<TH rowspan="2">Название
 <TBODY>
 <%
 List list = (List) request.getAttribute("results");
@@ -23,13 +23,14 @@ while (iterator.hasNext()) {
 i++;
 EquipmentsList item = new EquipmentsList();
 item = (EquipmentsList)iterator.next();
+
 %>
 <TR>
-<!-- <TD class=trone><%= item.getEquipment_id()%>-->
+<!-- <TD class=trone><%= item.getID_TYPE()%>-->
 <!-- ID каждого элемента будет являться ссылкой на ShowEquipmentsLists. 
 Переменная itemId передается в ShowEquipmentsLists как параметр. -->
-<TD class=trone><A href="GetEquipmentsListsServlet?itemId=<%= item.getEquipment_id()%>"><%= item.getEquipment_id()%></A>
-<TD class=trtwo><%= item.getEquipment_name()%>
+<TD class=trone><A href="GetEquipmentsListsServlet?itemId=<%= item.getID_TYPE()%>"><%= item.getID_TYPE()%></A>
+<TD class=trtwo><%= item.getENAME()%>
 <%}%>
 </TABLE>
 <p><A href="index.html">Home</A></p>
